@@ -10,7 +10,7 @@ RUN set -e; \
     freetype-dev icu-dev openssl-dev imagemagick-dev libjpeg-turbo-dev libwebp-dev libpng-dev libzip-dev libssh2-dev; \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS; \
     docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp; \
-    docker-php-ext-install -j "$(nproc)" bcmath exif gd intl mysqli zip pcntl pdo_mysql ftp sockets; \
+    docker-php-ext-install -j "$(nproc)" bcmath exif gd intl mysqli zip pcntl pdo_mysql ftp sockets calendar; \
     pecl install imagick-3.6.0 redis apcu timezonedb igbinary ssh2 \
     && docker-php-ext-enable imagick redis igbinary apcu ssh2 opcache; \
     apk del .build-deps; \
